@@ -42,4 +42,12 @@ public class FuncionarioController implements FuncionarioAPI {
 		
 	}
 
+	@Override
+	public void excluirFuncionarioExistente(UUID idFuncionario) {
+		log.info("[inicia] FuncionarioController -excluirFuncionarioExistente");
+		log.info("[idFuncionario] {}", idFuncionario);
+		funcionarioService.excluirFuncionarioPorId(idFuncionario);
+		log.info("[finaliza] FuncionarioController -excluirFuncionarioExistente");
+	}
+
 }

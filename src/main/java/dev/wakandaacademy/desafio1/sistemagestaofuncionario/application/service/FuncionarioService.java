@@ -12,5 +12,6 @@ public interface FuncionarioService {
 	FuncionarioResponse criaFuncionario(FuncionarioRequest funcionarioNovo);
 	FuncionarioDetalhadoResponse buscaFuncionarioPorId(UUID idFuncionario);
 	void atualizaDetalhesFuncionario(UUID idFuncionario, FuncionarioAtualizaoDetalhes funcionarioAtualizaDetalhes);
+	void excluirFuncionarioPorId(UUID idFuncionario);
 
 	}
