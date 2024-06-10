@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,4 +24,9 @@ public interface FuncionarioAPI {
 	@GetMapping(value = "/{idFuncionario}")
 	@ResponseStatus(code = HttpStatus.OK)
 	FuncionarioDetalhadoResponse detalhaFuncionario(@PathVariable UUID idFuncionario);
+
+	@PatchMapping(value = "/{idFuncionario}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void atualizaDetalhesFuncionario(@PathVariable UUID idFuncionario,
+			@Valid @RequestBody FuncionarioAtualizaoDetalhes funcionarioAtualizaDetalhes);
 }
