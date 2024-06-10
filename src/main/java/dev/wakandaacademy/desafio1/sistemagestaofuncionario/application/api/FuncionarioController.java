@@ -27,9 +27,19 @@ public class FuncionarioController implements FuncionarioAPI {
 	public FuncionarioDetalhadoResponse detalhaFuncionario(UUID idFuncionario) {
 		log.info("[inicia] FuncionarioController -detalhaFuncionario");
 		log.info("[idFuncionario] {}", idFuncionario);
-		FuncionarioDetalhadoResponse clienteDetalhado = funcionarioService.buscaFuncionarioPorId(idFuncionario);
+		FuncionarioDetalhadoResponse funcionarioDetalhado = funcionarioService.buscaFuncionarioPorId(idFuncionario);
 		log.info("[finaliza] FuncionarioController -detalhaFuncionario");
-		return clienteDetalhado;
+		return funcionarioDetalhado;
+	}
+
+	@Override
+	public void atualizaDetalhesFuncionario(UUID idFuncionario,
+			 FuncionarioAtualizaoDetalhes funcionarioAtualizaDetalhes) {
+		log.info("[inicia] FuncionarioController -atualizaDetalhesFuncionario");
+		log.info("[idFuncionario] {}", idFuncionario);
+		funcionarioService.atualizaDetalhesFuncionario(idFuncionario, funcionarioAtualizaDetalhes);
+		log.info("[finaliza] FuncionarioController -atualizaDetalhesFuncionario");		
+		
 	}
 
 }

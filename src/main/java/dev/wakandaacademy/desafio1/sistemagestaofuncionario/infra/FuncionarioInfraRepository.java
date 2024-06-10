@@ -28,10 +28,10 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 
 	@Override
 	public Funcionario buscaFuncionarioPorId(UUID idFuncionario) {
-		log.info("[inicia] FuncionarioInfraRepository - buscaClienteAtravesId");
+		log.info("[inicia] FuncionarioInfraRepository - buscaFuncionarioPorId");
 		Funcionario funcionario = funcionarioSpringDataJPARepository.findById(idFuncionario)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Funcionario não encontrado!"));
-		log.info("[finaliza] FuncionarioInfraRepository - buscaClienteAtravesId");
+		log.info("[finaliza] FuncionarioInfraRepository - buscaFuncionarioPorId");
 		return funcionario;
 	}
 

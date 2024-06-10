@@ -2,6 +2,7 @@ package dev.wakandaacademy.desafio1.sistemagestaofuncionario.domain;
 
 import java.util.UUID;
 
+import dev.wakandaacademy.desafio1.sistemagestaofuncionario.application.api.FuncionarioAtualizaoDetalhes;
 import dev.wakandaacademy.desafio1.sistemagestaofuncionario.application.api.FuncionarioRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,4 +37,12 @@ public class Funcionario {
 		this.endereco =  funcionarioNovo.getEndereco();
 	}
 
-}
+	public void atualiza(FuncionarioAtualizaoDetalhes funcionarioAtualizaDetalhes) {
+		this.nome = funcionarioAtualizaDetalhes.getNome();
+		this.designacao = funcionarioAtualizaDetalhes.getDesignacao();
+		this.salario = funcionarioAtualizaDetalhes.getSalario();
+		this.numeroTelefone = funcionarioAtualizaDetalhes.getNumeroTelefone();
+		this.endereco = funcionarioAtualizaDetalhes.getEndereco();
+		
+
+	}}

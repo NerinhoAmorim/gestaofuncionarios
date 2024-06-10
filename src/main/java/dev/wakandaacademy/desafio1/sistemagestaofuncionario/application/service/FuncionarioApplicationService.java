@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import dev.wakandaacademy.desafio1.sistemagestaofuncionario.application.api.FuncionarioAtualizaoDetalhes;
 import dev.wakandaacademy.desafio1.sistemagestaofuncionario.application.api.FuncionarioDetalhadoResponse;
 import dev.wakandaacademy.desafio1.sistemagestaofuncionario.application.api.FuncionarioRequest;
 import dev.wakandaacademy.desafio1.sistemagestaofuncionario.application.api.FuncionarioResponse;
@@ -29,12 +30,22 @@ public class FuncionarioApplicationService implements FuncionarioService {
 
 	@Override
 	public FuncionarioDetalhadoResponse buscaFuncionarioPorId(UUID idFuncionario) {
-		log.info("[inicia] ApplicationService - buscaFuncionarioPorId");
+		log.info("[inicia] FuncionarioApplicationService - buscaFuncionarioPorId");
 		Funcionario funcionario = funcionarioRepository.buscaFuncionarioPorId(idFuncionario);
-		log.info("[finaliza] ApplicationService - buscaFuncionarioPorId");
+		log.info("[finaliza] FuncionarioApplicationService - buscaFuncionarioPorId");
 		return new FuncionarioDetalhadoResponse(funcionario);
 	}
 
-	
+	@Override
+	public void atualizaDetalhesFuncionario(UUID idFuncionario,
+			FuncionarioAtualizaoDetalhes funcionarioAtualizaDetalhes) {
+		log.info("[inicia] FuncionarioApplicationService - atualizaDetalhesFuncionario");
+		Funcionario funcionario = funcionarioRepository.buscaFuncionarioPorId(idFuncionario);
+		funcionario.atualiza(funcionarioAtualizaDetalhes);
+		funcionarioRepository.salva(funcionario);
+		log.info("[finaliza] FuncionarioApplicationService - atualizaDetalhesFuncionario");
 
+	}
+
+	
 }
